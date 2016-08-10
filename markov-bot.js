@@ -6,6 +6,8 @@ var MarkovChainReply = require('markovchain')
   , fs = require('fs')
   , mchainReply = new MarkovChain(fs.readFileSync('./textblob2.txt', 'utf8'))
 //console.log(mchain.start('The').end(5).process())
+var starters = ["The","If","When","I","You","Which","How"];
+var seedWord = starters[Math.floor(Math.random() * starters.length)];
 
 //attribute to-
 // A2Z F15
@@ -35,7 +37,7 @@ setInterval(markovtweet, 1800000);
 function markovtweet() {
 
   // This is a random number bot
-  var tweet = mchain.start('What').end(20).process();
+  var tweet = mchain.start(seedWord).end(20).process();
   
   // Post that tweet!
   T.post('statuses/update', { status: tweet }, tweeted);
@@ -78,6 +80,7 @@ function tweetEvent(tweet) {
   var reply_to = tweet.in_reply_to_screen_name;
   // Who sent the tweet?
   var name = tweet.user.screen_name;
+  var nameID = tweet.id_str;
   // What is the text?
   var txt = tweet.text;
 
@@ -94,10 +97,10 @@ function tweetEvent(tweet) {
     //  reply += txt.charAt(i);
     //}
     //markov that shit
-    reply += mchainReply.start('sit').end(20).process();
+    reply += mchainReply.start(seedWord).end(20).process();
   
     // Post that tweet!
-    T.post('statuses/update', { status: reply }, tweeted);
+    T.post('statuses/update', {in_reply_to_status_id: nameID, status: reply }, tweeted);
 
     // Make sure it worked!
     function tweeted(err, reply) {
