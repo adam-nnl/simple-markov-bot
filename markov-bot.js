@@ -1,7 +1,10 @@
 var MarkovChain = require('markovchain')
   , fs = require('fs')
   , mchain = new MarkovChain(fs.readFileSync('./textblob.txt', 'utf8'))
- 
+
+var MarkovChainReply = require('markovchain')
+  , fs = require('fs')
+  , mchainReply = new MarkovChain(fs.readFileSync('./textblob2.txt', 'utf8'))
 //console.log(mchain.start('The').end(5).process())
 
 //attribute to-
@@ -26,7 +29,7 @@ var T = new Twit(config);
 markovtweet();
 
 // Once every N milliseconds
-setInterval(markovtweet, 60*5*1000);
+setInterval(markovtweet, 900000);
 
 // Here is the bot!
 function markovtweet() {
@@ -87,9 +90,11 @@ function tweetEvent(tweet) {
     // Start a reply back to the sender
     var reply = '.@'+name + ' ';
     // Reverse their text
-    for (var i = txt.length-1; i >= 0; i--) {
-      reply += txt.charAt(i);
-    }
+    //for (var i = txt.length-1; i >= 0; i--) {
+    //  reply += txt.charAt(i);
+    //}
+    //markov that shit
+    reply += mchainReply.start('The').end(5).process();
   
     // Post that tweet!
     T.post('statuses/update', { status: reply }, tweeted);
