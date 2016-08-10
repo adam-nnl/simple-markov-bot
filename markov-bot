@@ -23,16 +23,16 @@ var config = require('./config.js');
 var T = new Twit(config);
 
 // Start once
-markov-tweet();
+markovtweet();
 
 // Once every N milliseconds
-setInterval(markov-tweet, 60*5*1000);
+setInterval(markovtweet, 60*5*1000);
 
 // Here is the bot!
-function markov-tweet() {
+function markovtweet() {
 
   // This is a random number bot
-  var tweet = 'Here\'s a random number between 0 and 100: ' + Math.floor(Math.random()*100);
+  var tweet = quotes.start('The').end(5).process();
   
   // Post that tweet!
   T.post('statuses/update', { status: tweet }, tweeted);
