@@ -94,7 +94,7 @@ function tweetEvent(tweet) {
     //  reply += txt.charAt(i);
     //}
     //markov that shit
-    reply += mchainReply.start('The').end(5).process();
+    reply += mchainReply.start('sit').end(5).process();
   
     // Post that tweet!
     T.post('statuses/update', { status: reply }, tweeted);
