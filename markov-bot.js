@@ -35,7 +35,7 @@ setInterval(markovtweet, 900000);
 function markovtweet() {
 
   // This is a random number bot
-  var tweet = mchain.start('The').end(5).process();
+  var tweet = mchain.start('The').end().process();
   
   // Post that tweet!
   T.post('statuses/update', { status: tweet }, tweeted);
@@ -94,7 +94,7 @@ function tweetEvent(tweet) {
     //  reply += txt.charAt(i);
     //}
     //markov that shit
-    reply += mchainReply.start('sit').end(5).process();
+    reply += mchainReply.start('sit').end().process();
   
     // Post that tweet!
     T.post('statuses/update', { status: reply }, tweeted);
