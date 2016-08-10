@@ -23,13 +23,13 @@ var config = require('./config.js');
 var T = new Twit(config);
 
 // Start once
-tweeter();
+markov-tweet();
 
 // Once every N milliseconds
-setInterval(tweeter, 60*5*1000);
+setInterval(markov-tweet, 60*5*1000);
 
 // Here is the bot!
-function tweeter() {
+function markov-tweet() {
 
   // This is a random number bot
   var tweet = 'Here\'s a random number between 0 and 100: ' + Math.floor(Math.random()*100);
