@@ -1,3 +1,4 @@
+//initiate markov using text files
 var MarkovChain = require('markovchain')
   , fs = require('fs')
   , mchain = new MarkovChain(fs.readFileSync('./textblob.txt', 'utf8'));
@@ -5,7 +6,8 @@ var MarkovChain = require('markovchain')
 var MarkovChainReply = require('markovchain')
   , fs = require('fs')
   , mchainReply = new MarkovChain(fs.readFileSync('./textblob2.txt', 'utf8'));
-//console.log(mchain.start('The').end(5).process())
+  
+//define some random seed words  
 var starters = ["The","If","When","I","You","Which","How"];
 var seedWord = starters[Math.floor(Math.random() * starters.length)];
 
@@ -13,9 +15,6 @@ var seedWord = starters[Math.floor(Math.random() * starters.length)];
 // A2Z F15
 // Daniel Shiffman
 // https://github.com/shiffman/A2Z-F15
-
-// There's no web server here!
-// This is just a node app that connects to twitter and does stuff
 
 // Using the Twit node package
 // https://github.com/ttezel/twit
@@ -36,10 +35,10 @@ setInterval(markovtweet, 1800000);
 // Here is the bot!
 function markovtweet() {
 
-  // This is a random number bot
+  // This is a markov chain bot
   var tweet = mchain.start(seedWord).end(20).process();
   
-  // Post that tweet!
+  // Tweet that shit!
   T.post('statuses/update', { status: tweet }, tweeted);
 
   // Callback for when the tweet is sent
@@ -48,21 +47,19 @@ function markovtweet() {
       console.log(err);
     } else {
       console.log('Success: ' + data.text);
-      //console.log(response);
     }
   };
 
 }
 
 //reply-to
-
 // Setting up a user stream
 var stream = T.stream('user');
 
 // Anytime someone follows me
 stream.on('follow', followed);
 
-// Just looking at the event but I could tweet back!
+// Log being followed. follow user back and log
 function followed(event) {
   var name = event.source.name;
   var screenName = event.source.screen_name;
@@ -72,7 +69,6 @@ function followed(event) {
 }
 
 // Now looking for tweet events
-// See: https://dev.twitter.com/streaming/userstreams
 stream.on('tweet', tweetEvent);
 
 // Here a tweet event is triggered!
@@ -82,6 +78,7 @@ function tweetEvent(tweet) {
   var reply_to = tweet.in_reply_to_screen_name;
   // Who sent the tweet?
   var name = tweet.user.screen_name;
+  //what was the user id
   var nameID = tweet.id_str;
   // What is the text?
   var txt = tweet.text;
@@ -94,16 +91,13 @@ function tweetEvent(tweet) {
 
     // Start a reply back to the sender
     var reply = '@'+name + ' ';
-    // Reverse their text
-    //for (var i = txt.length-1; i >= 0; i--) {
-    //  reply += txt.charAt(i);
-    //}
+
     //markov that shit
     reply += mchainReply.start(seedWord).end(20).process();
   
     // Post that tweet!
     T.post('statuses/update', {in_reply_to_status_id: nameID, status: reply }, tweeted);
-    // Like the tweet
+    // Like the original tweet too!
     T.post('favorites/create', { id: tweet.id_str }, tweeted);
 
     // Make sure it worked!
