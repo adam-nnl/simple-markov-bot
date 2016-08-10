@@ -1,10 +1,10 @@
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , mchain = new MarkovChain(fs.readFileSync('./textblob.txt', 'utf8'))
+  , mchain = new MarkovChain(fs.readFileSync('./textblob.txt', 'utf8'));
 
 var MarkovChainReply = require('markovchain')
   , fs = require('fs')
-  , mchainReply = new MarkovChain(fs.readFileSync('./textblob2.txt', 'utf8'))
+  , mchainReply = new MarkovChain(fs.readFileSync('./textblob2.txt', 'utf8'));
 //console.log(mchain.start('The').end(5).process())
 var starters = ["The","If","When","I","You","Which","How"];
 var seedWord = starters[Math.floor(Math.random() * starters.length)];
