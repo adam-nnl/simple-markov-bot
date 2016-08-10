@@ -67,6 +67,8 @@ function followed(event) {
   var name = event.source.name;
   var screenName = event.source.screen_name;
   console.log('I was followed by: ' + name + ' ' + screenName);
+  T.post('friendships/create', { id: event.source.id_str }, tweeted); 
+  console.log('I followed: ' + name + ' ' + screenName);
 }
 
 // Now looking for tweet events
@@ -91,7 +93,7 @@ function tweetEvent(tweet) {
     txt = txt.replace(/@markovcocktail/g,'');
 
     // Start a reply back to the sender
-    var reply = '.@'+name + ' ';
+    var reply = '@'+name + ' ';
     // Reverse their text
     //for (var i = txt.length-1; i >= 0; i--) {
     //  reply += txt.charAt(i);
@@ -101,6 +103,8 @@ function tweetEvent(tweet) {
   
     // Post that tweet!
     T.post('statuses/update', {in_reply_to_status_id: nameID, status: reply }, tweeted);
+    // Like the tweet
+    T.post('favorites/create', { id: tweet.id_str }, tweeted);
 
     // Make sure it worked!
     function tweeted(err, reply) {
