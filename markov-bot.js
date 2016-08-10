@@ -1,8 +1,8 @@
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , quotes = new MarkovChain(fs.readFileSync('./quotes.txt', 'utf8'))
+  , mchain = new MarkovChain(fs.readFileSync('./textblob.txt', 'utf8'))
  
-//console.log(quotes.start('The').end(5).process())
+//console.log(mchain.start('The').end(5).process())
 
 //attribute to-
 // A2Z F15
@@ -32,7 +32,7 @@ setInterval(markovtweet, 60*5*1000);
 function markovtweet() {
 
   // This is a random number bot
-  var tweet = quotes.start('The').end(5).process();
+  var tweet = mchain.start('The').end(5).process();
   
   // Post that tweet!
   T.post('statuses/update', { status: tweet }, tweeted);
