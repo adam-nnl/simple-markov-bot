@@ -74,6 +74,15 @@ function followed(event) {
   console.log('I was followed by: ' + name + ' ' + screenName);
   T.post('friendships/create', { id: event.source.id_str }, tweeted); 
   console.log('I followed: ' + name + ' ' + screenName);
+  
+  // Callback for when the tweet is sent
+  function tweeted(err, data, response) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Success: ' + data.text);
+    }
+  };  
 }
 
 // Now looking for tweet events
