@@ -45,7 +45,7 @@ function markovtweet() {
   tweet.capitalizeFirstLetter(); // String
   var enders = ["!","?",".","..."];
   var endWord = enders[Math.floor(Math.random() * enders.length)];
-  myString += endWord;
+  tweet += endWord;
   // Tweet that shit!
   T.post('statuses/update', { status: tweet }, tweeted);
 
