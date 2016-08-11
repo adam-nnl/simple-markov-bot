@@ -8,7 +8,7 @@ var MarkovChainReply = require('markovchain')
   , mchainReply = new MarkovChain(fs.readFileSync('./demotivational.txt', 'utf8'));
   
 //define some random seed words  
-var starters = ["The","If","When","I","You","Which","How"];
+var starters = ["The","If","When","I","You","Which","How","it's","it","A","is"];
 var seedWord = starters[Math.floor(Math.random() * starters.length)];
 
 //attribute to-
@@ -35,7 +35,7 @@ setInterval(markovtweet, 1800000);
 // Here is the bot!
 function markovtweet() {
   //define some random seed words  
-  var starters = ["The","If","When","I","You","Which","How"];
+  var starters = ["The","If","When","I","You","Which","How","it's","it","A","is"];
   var seedWord = starters[Math.floor(Math.random() * starters.length)];
   
   // This is a markov chain bot
