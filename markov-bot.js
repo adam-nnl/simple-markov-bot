@@ -1,11 +1,11 @@
 //initiate markov using text files
 var MarkovChain = require('markovchain')
   , fs = require('fs')
-  , mchain = new MarkovChain(fs.readFileSync('./textblob.txt', 'utf8'));
+  , mchain = new MarkovChain(fs.readFileSync('./cliches.txt', 'utf8'));
 
 var MarkovChainReply = require('markovchain')
   , fs = require('fs')
-  , mchainReply = new MarkovChain(fs.readFileSync('./textblob2.txt', 'utf8'));
+  , mchainReply = new MarkovChain(fs.readFileSync('./demotivational.txt', 'utf8'));
   
 //define some random seed words  
 var starters = ["The","If","When","I","You","Which","How"];
