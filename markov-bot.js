@@ -1,3 +1,7 @@
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
 //initiate markov using text files
 var MarkovChain = require('markovchain')
   , fs = require('fs')
@@ -37,6 +41,11 @@ function markovtweet() {
   // This is a markov chain bot
   var tweet = mchain.start(seedWord).end(20).process();
   
+  //capitalize the first letter and add some random punctuation at the end
+  tweet.capitalizeFirstLetter(); // String
+  var enders = ["!","?",".","..."];
+  var endWord = enders[Math.floor(Math.random() * enders.length)];
+  myString += endWord;
   // Tweet that shit!
   T.post('statuses/update', { status: tweet }, tweeted);
 
