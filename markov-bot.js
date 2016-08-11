@@ -6,10 +6,6 @@ var MarkovChain = require('markovchain')
 var MarkovChainReply = require('markovchain')
   , fs = require('fs')
   , mchainReply = new MarkovChain(fs.readFileSync('./demotivational.txt', 'utf8'));
-  
-//define some random seed words  
-var starters = ["The","If","When","I","You","Which","How","it's","it","A","is"];
-var seedWord = starters[Math.floor(Math.random() * starters.length)];
 
 //attribute to-
 // A2Z F15
