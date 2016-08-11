@@ -35,7 +35,7 @@ setInterval(markovtweet, 2750000);
 // Here is the bot!
 function markovtweet() {
   //define some random seed words  
-  var starters = ["The","If","When","I","You","Which","How","it's","it","A","is"];
+  var starters = ["The","If","When","I","You","Thy","It's","It","A","Is"];
   var seedWord = starters[Math.floor(Math.random() * starters.length)];
   
   // This is a markov chain bot
