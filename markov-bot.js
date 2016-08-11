@@ -26,7 +26,7 @@ var T = new Twit(config);
 markovtweet();
 
 // Once every N milliseconds
-setInterval(markovtweet, 1800000);
+setInterval(markovtweet, 2750000);
 
 // Here is the bot!
 function markovtweet() {
@@ -82,7 +82,7 @@ function tweetEvent(tweet) {
   // What is the text?
   var txt = tweet.text;
   //define some random seed words  
-  var starters = ["The","If","When","I","You","Which","How"];
+  var starters = ["The","If","When","I","You","Which","How","fuck"];
   var seedWord = starters[Math.floor(Math.random() * starters.length)];
   
   // Ok, if this was in reply to me
