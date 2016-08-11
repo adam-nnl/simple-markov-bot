@@ -117,3 +117,8 @@ function tweetEvent(tweet) {
   }
 
 }
+
+stream.on('warning', function (item) { console.log('WARNING: ' + item); });
+stream.on('disconnect', function (item) { console.log('Stream disconnected.'); });
+stream.on('connect', function (item) { console.log('Stream connected.'); });
+stream.on('reconnect', function (item) { console.log('Stream reconnected.'); });
