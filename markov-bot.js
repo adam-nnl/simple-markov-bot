@@ -34,7 +34,10 @@ setInterval(markovtweet, 1800000);
 
 // Here is the bot!
 function markovtweet() {
-
+  //define some random seed words  
+  var starters = ["The","If","When","I","You","Which","How"];
+  var seedWord = starters[Math.floor(Math.random() * starters.length)];
+  
   // This is a markov chain bot
   var tweet = mchain.start(seedWord).end(20).process();
   
@@ -82,7 +85,10 @@ function tweetEvent(tweet) {
   var nameID = tweet.id_str;
   // What is the text?
   var txt = tweet.text;
-
+  //define some random seed words  
+  var starters = ["The","If","When","I","You","Which","How"];
+  var seedWord = starters[Math.floor(Math.random() * starters.length)];
+  
   // Ok, if this was in reply to me
   if (reply_to === 'markovcocktail') {
 
