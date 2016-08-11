@@ -43,7 +43,7 @@ function markovtweet() {
   
   //capitalize the first letter and add some random punctuation at the end
   tweet.capitalizeFirstLetter(); // String
-  var enders = ["!","?",".","...",". -unknown author","? -unknown author","! -unknown author",". -Jack Slater","? -Jack Slater","! -Jack Slater",". -Ellen Ripley","? -Ellen Ripley","! -Ellen Ripley",". -John McClane","? -John McClane","! -John McClane"];
+  var enders = ["!","?",".","..."];
   var endWord = enders[Math.floor(Math.random() * enders.length)];
   tweet += endWord;
   // Tweet that shit!
