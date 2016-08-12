@@ -15,6 +15,16 @@ Twitter's streaming API.
 7. Add whatever logic you want to the `valid` and `response` functions in `config.js`
 8. `node bot.js > output.log &`
 
+## markov bot
+1. git clone https://github.com/adam-nnl/simple-twitter-bot.git && cd simple-twitter-bot && npm install
+2. Create an application on http://dev.twitter.com
+3. Generate the necessary tokens.
+4. Copy config.js-dist to config.js
+5. Put your tokens in config.js
+6. populate the txt files cliches.txt and demotivational.txt with sentences and saying. not signle words. Cliches are used for hourly 7. bot tweets. Demotivational is used for bot replies
+8. Add whatever addtional logic you want to markov-bot.js
+9. node markov-bot.js > output.log &
+
 ## What Uses It
 
 * [@XsGonnaX](http://twitter.com/xsgonnax)
