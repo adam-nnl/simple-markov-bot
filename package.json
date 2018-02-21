@@ -4,7 +4,7 @@
   "description": "A simple framework for creating a Twitter bot.",
   "main": "bot.js",
   "dependencies": {
-    "twit": "~1.1.9"
+    "twit": "~1.1.9",
     "markovchain": "1.0.2"
   },
   "devDependencies": {},
