@@ -29,8 +29,8 @@ var T = new Twit(config);
 // Start once
 markovtweet();
 
-// Once every N milliseconds
-setInterval(markovtweet, 7200000);
+// Once every N milliseconds currently 6h
+setInterval(markovtweet, 21600000);
 
 // Here is the bot!
 function markovtweet() {
