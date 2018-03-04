@@ -21,12 +21,12 @@ Twitter's streaming API.
 3. Generate the necessary tokens.
 4. Copy config.js-dist to config.js
 5. Put your tokens in config.js
-6. populate the txt files cliches.txt and demotivational.txt with sentences and sayings. not single words. Cliches are used for hourly bot tweets. Demotivational is used for bot replies
+6. populate the txt files cliches.txt and demotivational.txt with sentences and phrases, not single words. Cliches are used for hourly bot tweets. Demotivational is used for bot replies
 7. Add whatever addtional logic you want to markov-bot.js
 8. node markov-bot.js > output.log &
 
 ## What Uses It
-
+* [@markovcocktail](http://twitter.com/markovcocktail)
 * [@XsGonnaX](http://twitter.com/xsgonnax)
 * [@CoderShow](http://twitter.com/codershow)
 * [@boostrapghost](http://twitter.com/boostrapghost)
