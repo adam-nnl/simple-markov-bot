@@ -1,6 +1,6 @@
 # Simple Twitter Bot
 
-This is a framework for creating simple Markov chain powered Twitter bots in nodejs. It uses the
+This is a framework for creating simple Markov chain powered Twitter bots in nodejs. Based and forked from [simple-twitter-bot](https://github.com/rfreebern/simple-twitter-bot) it uses the
 straightforward [Twit](https://github.com/ttezel/twit) library to access
 Twitter's streaming API. The markov magic is made possible with the [markovchain package](https://www.npmjs.com/package/markovchain)
 
